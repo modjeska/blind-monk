@@ -22,7 +22,7 @@
   - View a PDF of my resume.
   
 ## [Deployment](#deployment)
-[Heroku](https://modjeska.github.io/dante/)
+[GitHub Pages](https://modjeska.github.io/dante/)
 
 ## [Installation](#table-of-contents)
   <b>No installation needed.</b>
