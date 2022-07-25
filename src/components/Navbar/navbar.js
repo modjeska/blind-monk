@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './navbar.css'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,10 +10,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import Experience from '../../assets/misc/resume.pdf'
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+
+const ResponsiveAppBar = ({pageState, setPageState}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -27,9 +30,21 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
+  const handleOpenAbout = () => {
+    setPageState({...pageState, about: true, works: false, contact: false,})
+  }
+
+  const handleOpenWorks = () => {
+    setPageState({...pageState, about: false, works: true, contact: false,})
+  }
+  
+  const handleOpenContact = () => {
+    setPageState({...pageState, about: false, works: false, contact: true,})
+  }
 
   return (
-    <AppBar position="static">
+    <AppBar className="navbar" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -78,22 +93,24 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleOpenAbout}>
                   <Typography textAlign="center">About</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleOpenWorks}>
                   <Typography textAlign="center">Works</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleOpenContact}>
                   <Typography textAlign="center">Contact</Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
+                  <Button href={Experience} rel="noreferrer" target="_blank">
                   <Typography textAlign="center">Experience</Typography>
+                  </Button>
                 </MenuItem>
 
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <SentimentSatisfiedAltIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -116,29 +133,30 @@ const ResponsiveAppBar = () => {
            
               <Button
 
-                onClick={handleCloseNavMenu}
+                onClick={handleOpenAbout}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 About
               </Button>
               <Button
 
-                onClick={handleCloseNavMenu}
+                onClick={handleOpenWorks}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Works
               </Button>
               <Button
 
-                onClick={handleCloseNavMenu}
+                onClick={handleOpenContact}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Contact
               </Button>
-              <Button
+
+              <Button href={Experience} rel="noreferrer" target="_blank"
 
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ textDecoration: 'none', my: 2, color: 'white', display: 'block' }}
               >
                 Experience
               </Button>

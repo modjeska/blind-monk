@@ -5,6 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import './contact.css'
 
 const Contact = () => {
 
@@ -34,6 +35,7 @@ const Contact = () => {
     }
 
     const validateEmail = (inputText) => {
+        // eslint-disable-next-line no-useless-escape
         var mailformat = /^\w+([\.-]?\w+)*@\w([\.-]?\w+)*(\.\w{2,3})+$/
         if(inputText.match(mailformat)) {
             return true
@@ -56,15 +58,15 @@ const Contact = () => {
             <h1>Contact</h1>
         </Grid>
     </Grid>
-    <Grid container justifyContent="center">
+    <Grid className="error" container justifyContent="center">
         {
-            formState.nameNeeded? <p>Empty name not allowed.</p> : ''
+            formState.nameNeeded? <p>Empty name not allowed *</p> : ''
         }
         {
-            formState.messageNeeded? <p>Empty message not allowed.</p> : ''
+            formState.messageNeeded? <p>Empty message not allowed *</p> : ''
         }
         {
-            formState.invalidEmail? <p>Invalid email.</p> : ''
+            formState.invalidEmail? <p>Invalid email *</p> : ''
         }
     </Grid>
     <Grid container justifyContent="center" spacing={3} padding={2}>
