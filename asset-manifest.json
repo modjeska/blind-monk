@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dante/static/css/main.9b9b5536.css",
+    "main.js": "/dante/static/js/main.9e397555.js",
+    "static/media/me.png": "/dante/static/media/me.41e329bbeaee7ea18f69.png",
+    "static/media/resume.pdf": "/dante/static/media/resume.f00722f5ddb3ce1d74c4.pdf",
+    "index.html": "/dante/index.html",
+    "main.9b9b5536.css.map": "/dante/static/css/main.9b9b5536.css.map",
+    "main.9e397555.js.map": "/dante/static/js/main.9e397555.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b9b5536.css",
+    "static/js/main.9e397555.js"
+  ]
+}
